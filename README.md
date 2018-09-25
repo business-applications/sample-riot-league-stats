@@ -1,6 +1,6 @@
-# Business Applications by jBPM - Riot Leage Stats Sample
+# Business Applications by jBPM - Riot League Stats Demo
 
-This is a sample business application built with https://start.jbpm.org and expanded
+This is a demo business application built with https://start.jbpm.org and expanded
 to add riot games leage of legends game stats demo. 
 
 ## Getting Started
