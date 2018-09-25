@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>League of Legends - jBPM Business app demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            background: url('../pagebackground.jpg');
+            background-repeat: no-repeat;
+            display: compact;
+            height: 100%;
+        }
+
+        .center-div {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 60%;
+            height: 70%;
+            background-color: #ccc;
+            border-radius: 3px;
+            background-color: #f8f9fa9c;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container h-100 d-flex justify-content-center">
+    <div class="jumbotron center-div">
+        <p>
+        <h2><strong>jBPM Businss app demo - League of Legends</strong></h2></p>
+        <p><strong>Enter Summoner info to get match statistics for last 10 games</strong></p>
+        <p>
+        <form action="#" th:action="@{/riotdemo}" th:object="${summonerinput}" method="post">
+            <div class="form-group">
+                <label for="summonername"><strong>Summoner Name</strong></label>
+                <input type="text" class="form-control" id="summonername" th:field="*{summonerName}">
+            </div>
+            <div class="form-group">
+                <label for="summonerplatform"><strong>Summoner Platform</strong></label>
+                <select id="summonerplatform" th:field="*{summonerPlatform}">
+                    <option value="kr" selected>KR</option>
+                    <option value="euw">EUW</option>
+                    <option value="na">NA</option>
+                    <option value="br">BR</option>
+                    <option value="jp">JP</option>
+                    <option value="eune">EUNE</option>
+                    <option value="ru">RU</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="numofgames"><strong>Num of last games</strong></label>
+                <select id="numofgames" th:field="*{numOfGames}">
+                    <option value="10" selected>10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                    <option value="60">60</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Search!</button>
+        </form>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

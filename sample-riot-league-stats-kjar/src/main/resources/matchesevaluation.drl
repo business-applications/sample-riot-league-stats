@@ -1,0 +1,60 @@
+import java.util.List;
+import net.rithms.riot.api.endpoints.match.dto.Match;
+import net.rithms.riot.api.endpoints.match.dto.TeamStats;
+import com.company.model.MatchAverages;
+
+rule insertmatchdata 
+ruleflow-group 'teamstats'
+no-loop
+when
+    $matches : List()
+    $match : Match() from $matches
+    $averages : MatchAverages()
+then
+    $averages.setTotalMatches($matches.size());
+    insert($match);
+end
+
+rule evaluatematch
+ruleflow-group 'teamstats'
+when
+    $match : Match()
+    $averages : MatchAverages()
+then
+    $averages.setTotalBaronKills( $averages.getTotalBaronKills() + $match.getTeams().get(0).getBaronKills() );
+    $averages.setTotalDragonKills( $averages.getTotalDragonKills() + $match.getTeams().get(0).getDragonKills() );
+    $averages.setTotalTowerKills( $averages.getTotalTowerKills() + $match.getTeams().get(0).getTowerKills() );
+end
+
+rule evaluatematchfirstbloods
+ruleflow-group 'teamstats'
+when
+    $match : Match($teams : teams)
+    $averages : MatchAverages()
+    $teamstats : TeamStats(firstBlood == true) from $teams.get(0)
+then
+    $averages.setTotalFirstBlood( $averages.getTotalFirstBlood() + 1 );
+end
+
+rule evaluatematchwins
+ruleflow-group 'teamstats'
+when
+    $match : Match($teams : teams)
+    $averages : MatchAverages()
+    $teamstats : TeamStats(win == "Win") from $teams.get(0)
+then
+    $averages.setTotalWins( $averages.getTotalWins() + 1 );
+end
+
+rule calculateaverages
+salience -100
+ruleflow-group 'teamstats'
+when
+    $averages : MatchAverages()
+then
+    $averages.setAvgBaronKills((float) ((float)$averages.getTotalBaronKills() / (float)$averages.getTotalMatches()));
+    $averages.setAvgDragonKills((float) ((float)$averages.getTotalDragonKills() / (float)$averages.getTotalMatches()));
+    $averages.setAvgFirstBlood((float) ((float)$averages.getTotalFirstBlood() / (float)$averages.getTotalMatches()));
+    $averages.setAvgTowerKills((float) ((float)$averages.getTotalTowerKills() / (float)$averages.getTotalMatches()));
+    $averages.setAvgTotalWins((float) ((float)$averages.getTotalWins() / (float)$averages.getTotalMatches()));
+end

@@ -1,0 +1,76 @@
+[
+        [
+            "name" : "RiotSummonerInfo",
+            "displayName" : "RiotSummonerInfo",
+            "category" : "",
+            "description" : "",
+            "defaultHandler" : "mvel: new org.jbpm.process.workitem.riot.SummonerInfoWorkitemHandler()",
+            "documentation" : "riot-workitem/index.html",
+
+            "parameters" : [
+                                "SummonerPlatform" : new StringDataType()
+                ,"SummonerName" : new StringDataType()
+
+            ],
+            "results" : [
+                                "SummonerInfo" : new StringDataType()
+
+            ],
+            "mavenDependencies" : [
+                                 "org.jbpm.contrib:riot-workitem:7.12.0-SNAPSHOT"
+
+            ],
+            "icon" : ""
+
+        ]
+    ,[
+            "name" : "RiotSummonerLastMatch",
+            "displayName" : "RiotSummonerLastMatch",
+            "category" : "",
+            "description" : "",
+            "defaultHandler" : "mvel: new org.jbpm.process.workitem.riot.LastSummonerMatchWorkitemHandler()",
+            "documentation" : "riot-workitem/index.html",
+
+            "parameters" : [
+                                "SummonerPlatform" : new StringDataType()
+                ,"SummonerName" : new StringDataType()
+
+            ],
+            "results" : [
+                                "LastMatch" : new StringDataType()
+
+            ],
+            "mavenDependencies" : [
+                                 "org.jbpm.contrib:riot-workitem:7.12.0-SNAPSHOT"
+
+            ],
+            "icon" : ""
+
+        ]
+    ,[
+            "name" : "RiotMatchInfo",
+            "displayName" : "RiotMatchInfo",
+            "category" : "",
+            "description" : "",
+            "defaultHandler" : "mvel: new org.jbpm.process.workitem.riot.MatchInfoWorkitemHandler()",
+            "documentation" : "riot-workitem/index.html",
+
+            "parameters" : [
+                                "SummonerPlatform" : new StringDataType()
+                ,"SummonerName" : new StringDataType()
+                ,"NumOfMatches" : new StringDataType()
+
+            ],
+            "results" : [
+                                "MatchesInfo" : new StringDataType()
+
+            ],
+            "mavenDependencies" : [
+                                 "org.jbpm.contrib:riot-workitem:7.12.0-SNAPSHOT"
+
+            ],
+            "icon" : ""
+
+        ]
+
+]
