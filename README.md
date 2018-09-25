@@ -1,7 +1,7 @@
 # Business Applications by jBPM - Riot League Stats Demo
 
 This is a demo business application built with https://start.jbpm.org and expanded
-to add riot games leage of legends game stats demo. 
+to add riot games league of legends game stats demo. 
 
 ## Getting Started
 
@@ -65,7 +65,7 @@ with platform "KR" (default)
 
 Notice that since this is just a demo app it does not nicely
 handle summoner names which do not exist, but you can 
-expand on this add add that to your app if you want :)
+expand on this add that to your app if you want :)
 
 
 Have fun!
