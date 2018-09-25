@@ -20,11 +20,13 @@
       <groupId>org.jbpm.contrib</groupId>
       <artifactId>riot-workitem</artifactId>
       <version>${version.org.kie}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.jbpm.apps</groupId>
       <artifactId>sample-riot-league-stats-model</artifactId>
       <version>${version}</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   <repositories>
